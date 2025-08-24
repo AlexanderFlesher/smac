@@ -2,5 +2,11 @@
 name = "smac"
 version = "0.1.0"
 edition = "2024"
+description = "A small MAC address parser in no_std Rust"
+authors = ["Alexander Flesher"]
+repository = "https://github.com/AlexanderFlesher/smac"
+license = "MIT"
+readme = "readme.md"
+categories = ["no-std"]
 
 [dependencies]
