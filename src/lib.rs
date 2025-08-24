@@ -1,7 +1,18 @@
+//! # smac
+//!
+//! ## A small MAC address parsing library in no_std Rust
+//!
+//! The `MacAddress` struct is six bytes, and implements `FromStr` and
+//! `Display`. The `FromStr` implementation expects a string of six hex bytes
+//! unseparated, or separated by space (' ') or colon (':').
+//!
+//! `smac` uses `no_std` and only the unit tests depend on `alloc`.
+//!
 #![no_std]
 use core::{error::Error, fmt::Display, str::FromStr};
 
-#[derive(Clone, Copy)]
+/// A struct representing a 48-bit MAC address.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MacAddress {
     pub bytes: [u8; 6],
 }
