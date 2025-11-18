@@ -11,7 +11,14 @@
 #![no_std]
 use core::{error::Error, fmt::Display, str::FromStr};
 
+#[cfg(feature = "zerocopy")]
+use zerocopy::{FromBytes, Immutable, IntoBytes, KnownLayout};
+
 /// A struct representing a 48-bit MAC address.
+#[cfg_attr(
+    feature = "zerocopy",
+    derive(KnownLayout, Immutable, FromBytes, IntoBytes)
+)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MacAddress {
     pub bytes: [u8; 6],
